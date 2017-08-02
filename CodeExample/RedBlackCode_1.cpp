@@ -4,7 +4,6 @@
 */
 
 // 检索是否存在符合某个条件的记录
-
 GSPTable oResourceDetail = bidRes.asTable(pfnResourceDetail);
 bool bGBCCompare = false;
 if (pBidService && pBidService->isCooperateMode() && oResourceDetail.recordCount() > 0)
