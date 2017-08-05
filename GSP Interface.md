@@ -33,3 +33,17 @@ srcFBFXNormItemTable[0].evalExpr("1.231");   // 0.31 msecs per iteration (total:
 srcFBFXNormItemTable.tableSchema().checkExpr("1.231*3", dtDouble); // 0.026 msecs per iteration (total: 55, iterations: 2048)
 srcFBFXNormItemTable.tableSchema().checkExpr("1.231", dtDouble);  //  0.012 msecs per iteration (total: 53, iterations: 4096)
 ```
+
+- 检索是否存在符合某个条件的记录
+```
+// 返回符合条件记录列表的方式
+GSPRecordList oRecList = oResourceDetail.createRecordList("Quantity <> 0");
+bGBCCompare = oRecList.count() > 0;
+
+// locateEx 方式
+GSPRecord oRecord = oResourceDetail.locateEx(GString("Quantity <> 0"));
+if (NULL != oRecord)
+{
+    bGBCCompare = true;
+}
+```
