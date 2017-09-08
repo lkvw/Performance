@@ -47,3 +47,11 @@ if (NULL != oRecord)
     bGBCCompare = true;
 }
 ```
+
+- 获取模型
+```
+// 针对某些业务场景，可能需要多批次的加载同一模型使用，可将批量加载可改为加载一次，后面clone，或者将加载的模型回滚重新利用
+GBQShareGSPUtils::loadGSPModel(m_sJobBDSTplFile);
+// clone、回滚模型比重新加载模型性能消耗更低
+GSPModel oJobModel = oJobBDSModel.clone(false, false);
+```
